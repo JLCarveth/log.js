@@ -1,0 +1,24 @@
+{
+  "name": "log.js",
+  "version": "1.0.0",
+  "description": "A dead-simple JSON-formatted logging utility for Node.js applications.",
+  "main": "log.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JLCarveth/log.js.git"
+  },
+  "keywords": [
+    "logging",
+    "JSON"
+  ],
+  "author": "John L. Carveth",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JLCarveth/log.js/issues"
+  },
+  "homepage": "https://github.com/JLCarveth/log.js#readme"
+}
