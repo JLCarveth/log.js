@@ -21,6 +21,13 @@ class Logger {
 
     /**
      * Sends a JSON-formatted log message to STDOUT
+     * TODO:
+     * Improve method signature such that the following are supported:
+     *  - log(message); Logs a message with no data, level=info
+     *  - log(message, level); Logs a message w/ no data, level=level
+     *  - log(message, data); Logs a message w/ level=info;
+     *  - log(message, data, level); Logs a message w/ level=level
+     * This should be do-able by type-checking and counting argument #s.
      */
     log({message, level =this.LEVELS.INFO}, data) {
         let date =this.getISOTimestamp();
@@ -32,9 +39,6 @@ class Logger {
         };
 
         for (let line in data) {
-            // DO we need to call JSON.stringify() on data[line]?
-            // Do we only need ot call it if it's an object?
-            // Or let the final stringify call handle it all
             json[line] = data[line];
         }
 
