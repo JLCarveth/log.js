@@ -1,10 +1,10 @@
 # log.js
-### A dead-simple logging utility for Node.js applications in a JSON format.
+### A dead-simple, lightweight (>5KB) logging utility for Node.js applications in a JSON format.
 ---
 ## Installation
 log.js is available on the npm registry, and can be installed with a single command:
 ```
-npm i log.js --save
+npm i @jlcarveth/log.js --save
 ```
 Otherwise, `log.js` consists of a single javascript file, so it can be downloaded and added to your project manually:
 ```
