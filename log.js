@@ -3,7 +3,7 @@ import os from 'os';
 /**
  * @author John L. Carveth
  * @name log.js
- * @version 0.1.0
+ * @version 0.5.2
  * @description A dead-simple logging utility that formats log messages
  * and outputs them to a JSON format.
  */
