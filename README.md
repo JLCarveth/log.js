@@ -1,6 +1,10 @@
 # log.js
 ### A dead-simple, lightweight (>5KB) logging utility for Node.js applications in a JSON format.
 ---
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/jlcarveth/log.js)
+![npm (scoped)](https://img.shields.io/npm/v/@jlcarveth/log.js)
+![npm](https://img.shields.io/npm/dt/@jlcarveth/log.js)
+![GitHub issues](https://img.shields.io/github/issues/jlcarveth/log.js)
 ## Installation
 log.js is available on the npm registry, and can be installed with a single command:
 ```
