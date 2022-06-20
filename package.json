@@ -1,6 +1,6 @@
 {
   "name": "@jlcarveth/log.js",
-  "version": "0.5.2",
+  "version": "1.0.0",
   "description": "A dead-simple JSON-formatted logging utility for Node.js applications.",
   "main": "log.js",
   "type": "module",
