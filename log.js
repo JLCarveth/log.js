@@ -21,28 +21,30 @@ class Logger {
 
     /**
      * Sends a JSON-formatted log message to STDOUT
-     * TODO:
-     * Improve method signature such that the following are supported:
-     *  - log(message); Logs a message with no data, level=info
-     *  - log(message, level); Logs a message w/ no data, level=level
-     *  - log(message, data); Logs a message w/ level=info;
-     *  - log(message, data, level); Logs a message w/ level=level
-     * This should be do-able by type-checking and counting argument #s.
      */
-    log({message, level =this.LEVELS.INFO}, data) {
-        let date =this.getISOTimestamp();
-        let json = {
-            'timestamp' : date,
-            'level' : level,
-            'message' : message,
-            'hostname' : this.hostname
-        };
-
-        for (let line in data) {
-            json[line] = data[line];
+    log (message, level='info', data={}) {
+        let log = {};
+        // ( Message & Level ) OR ( Message and Data )
+        if (arguments.length == 2) {
+            if (typeof arguments[1] === 'string') {
+                log.level = arguments[1];
+            } else if (typeof arguments[1] === 'object') {
+                log.level = 'info'; // Default log level
+                for (let line in arguments[1]) {
+                    log[line] = arguments[1][line];
+                }
+            }
         }
 
-        console.log(JSON.stringify(json));
+        if (!log.level) log.level = level;
+        log.message = message;
+        if (!log.data) {
+            for (let line in data) {
+                log[line] = data[line];
+            }
+        }
+
+        console.log(JSON.stringify(log));
     }
 
     /**
