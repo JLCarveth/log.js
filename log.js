@@ -24,6 +24,7 @@ class Logger {
      */
     log (message, level='info', data={}) {
         let log = {};
+        log.timestamp = this.getISOTimestamp();
         // ( Message & Level ) OR ( Message and Data )
         if (arguments.length == 2) {
             if (typeof arguments[1] === 'string') {
