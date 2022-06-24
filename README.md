@@ -20,7 +20,7 @@ The goal of log.js is to be dead simple to use. Simplest use of log.js simply in
 ```
 import logger from 'log.js'; // Import the package
 
-const Logger = new Logger(); // Initialize the package
+const Logger = new logger(); // Initialize the package
 
 [...]
 Logger.log('A request was made to /api/some/route.');
