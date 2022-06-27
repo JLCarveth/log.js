@@ -1,5 +1,5 @@
 # log.js
-### A dead-simple, lightweight (>5KB) logging utility for Node.js applications in a JSON format.
+### A dead-simple, lightweight (>8KB) logging utility for Node.js applications in a JSON format.
 ---
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/jlcarveth/log.js)
 ![npm (scoped)](https://img.shields.io/npm/v/@jlcarveth/log.js)
