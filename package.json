@@ -8,7 +8,7 @@
     "test": "node test.js"
   },
   "bin": {
-    "logger": "./bin/cli.js"
+    "logjs": "./bin/cli.js"
   },
   "repository": {
     "type": "git",
