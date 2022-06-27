@@ -54,3 +54,24 @@ Any parameters passed to `log()` are included in the log messages:
 ```
 {"timestamp":"2022-06-14T15:31:37.273Z","level":"info","message":"Incoming request","hostname":"JohnC-pc","clientAddress":"::1","targetURL":"https://www.uuidtools.com/api/generate/v5/namespace/ns:url/name/JohnLCarveth","method":"GET","body":{},"headers":{"target-url":"https://www.uuidtools.com/api/generate/v5/namespace/ns:url/name/JohnLCarveth","user-agent":"PostmanRuntime/7.29.0","accept":"*/*","postman-token":"6f92736e-ec2c-4971-9dfe-070c6e448592","host":"localhost:3069","accept-encoding":"gzip, deflate, br","connection":"keep-alive"}}
 ```
+
+## Command-Line Interface
+`log.js` also provides a command-line tool to allow for JSON logging in other environments, specifically shell scripts. Simply install the package globally:
+```
+npm i -g @jlcarveth/log.js
+```
+Once installed, the `logger` binary becomes available. Usage is quite familiar to the Javascript API:
+```
+# Basic Usage
+$ logger "This is a log message"
+{"timestamp":"2022-06-27T12:45:51.716Z","level":"info","message":"This is a log message"}
+
+# Specify log level with -l OR --level
+$ logger "This is a test message" -l warning
+{"timestamp":"2022-06-27T12:39:06.999Z","level":"warning","message":"This is a test message"}
+
+# Additional data is passed through with a key=value pattern:
+$ logger "This is a test message" -l warning x=42 y=21
+{"timestamp":"2022-06-27T12:39:15.204Z","level":"warning","message":"This is a test message","x":"42","y":"21"}
+```
+Output is JSON-formatted and can be piped to a file or another utility.
