@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 import Logger from "../log.js";
 let Log = new Logger();
+import pkg from '../package.json' assert {type:'json'};
 
 let BOLD = '\x1b[1m';
 let RESET = '\x1b[0m';
-let man = "\t\tlog.js v1.1.0\n" +
+let man = "\t\tlog.js v" + pkg.version + "\n" +
         BOLD + "NAME" + RESET + "\n" +
         "\t log.js - A simple command-line logging utility in JSON-format.\n" + 
         BOLD + "SYNOPSIS " + RESET + "\n" +
@@ -26,6 +27,12 @@ let flags = [
         // Usage:
         //  -l info
         // --level warning
+    },
+    {
+        "flag" : "-v",
+        "name" : "--version",
+        "tag" : "version",
+        "expectValue": false
     }
 ]
 
@@ -45,8 +52,10 @@ if (process.argv.length === 2) {
     console.log(man)
     process.exit(0)
 } else if (process.argv.length === 3) {
-    // One argument provided, must be message
-    // Is there even more to be done here in terms of validity checks?
+    if (process.argv[2] === '-v' || process.argv[2] === '--version') {
+        console.log(pkg.version);
+        process.exit(0);
+    }
     Log.log(process.argv[2]);
     process.exit(0);
 } else {
@@ -77,6 +86,10 @@ if (process.argv.length === 2) {
 function parseArgument(arg, index) {
     flags.forEach(flag => {
         if (arg === flag.name || arg === flag.flag) {
+            if (flag.tag === 'version') {
+                console.log(pkg.version)
+                process.exit(0);
+            }
             if (flag.expectValue) {
                 // flag expects a value, ensure there are enough arguments
                 if (index < process.argv.length - 1) {
