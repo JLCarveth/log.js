@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 import Logger from "../log.js";
 let Log = new Logger();
-import pkg from '../package.json' assert {type:'json'};
+import fs from 'fs';
+const pkg = JSON.parse(fs.readFileSync('./package.json'));
 
 let BOLD = '\x1b[1m';
 let RESET = '\x1b[0m';
