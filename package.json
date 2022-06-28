@@ -1,6 +1,6 @@
 {
   "name": "@jlcarveth/log.js",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A dead-simple JSON-formatted logging utility for Node.js applications.",
   "main": "./bin/cli.js",
   "type": "module",
@@ -8,7 +8,7 @@
     "test": "node test.js"
   },
   "bin": {
-    "logger": "./bin/cli.js"
+    "logjs": "./bin/cli.js"
   },
   "repository": {
     "type": "git",
