@@ -60,18 +60,18 @@ Any parameters passed to `log()` are included in the log messages:
 ```
 npm i -g @jlcarveth/log.js
 ```
-Once installed, the `logger` binary becomes available. Usage is quite familiar to the Javascript API:
+Once installed, the `logjs` binary becomes available. Usage is quite familiar to the Javascript API:
 ```
 # Basic Usage
-$ logger "This is a log message"
+$ logjs "This is a log message"
 {"timestamp":"2022-06-27T12:45:51.716Z","level":"info","message":"This is a log message"}
 
 # Specify log level with -l OR --level
-$ logger "This is a test message" -l warning
+$ logjs "This is a test message" -l warning
 {"timestamp":"2022-06-27T12:39:06.999Z","level":"warning","message":"This is a test message"}
 
 # Additional data is passed through with a key=value pattern:
-$ logger "This is a test message" -l warning x=42 y=21
+$ logjs "This is a test message" -l warning x=42 y=21
 {"timestamp":"2022-06-27T12:39:15.204Z","level":"warning","message":"This is a test message","x":"42","y":"21"}
 ```
 Output is JSON-formatted and can be piped to a file or another utility.
