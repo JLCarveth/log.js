@@ -2,11 +2,12 @@
 import Logger from "../log.js";
 let Log = new Logger();
 import fs from 'fs';
-const pkg = JSON.parse(fs.readFileSync('./package.json'));
+
+const version = '1.2.3';
 
 let BOLD = '\x1b[1m';
 let RESET = '\x1b[0m';
-let man = "\t\tlog.js v" + pkg.version + "\n" +
+let man = "\t\tlog.js v" + version + "\n" +
         BOLD + "NAME" + RESET + "\n" +
         "\t log.js - A simple command-line logging utility in JSON-format.\n" + 
         BOLD + "SYNOPSIS " + RESET + "\n" +
@@ -54,7 +55,7 @@ if (process.argv.length === 2) {
     process.exit(0)
 } else if (process.argv.length === 3) {
     if (process.argv[2] === '-v' || process.argv[2] === '--version') {
-        console.log(pkg.version);
+        console.log(version);
         process.exit(0);
     }
     Log.log(process.argv[2]);
@@ -88,7 +89,7 @@ function parseArgument(arg, index) {
     flags.forEach(flag => {
         if (arg === flag.name || arg === flag.flag) {
             if (flag.tag === 'version') {
-                console.log(pkg.version)
+                console.log(version)
                 process.exit(0);
             }
             if (flag.expectValue) {
